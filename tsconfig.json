@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "jsx": "react"
+  },
+  "formatCodeOptions": {
+    "indentSize": 4,
+    "tabSize": 4,
+    "newLineCharacter": "\r\n",
+    "convertTabsToSpaces": true,
+    "insertSpaceAfterCommaDelimiter": true,
+    "insertSpaceAfterSemicolonInForStatements": true,
+    "insertSpaceBeforeAndAfterBinaryOperators": true,
+    "insertSpaceAfterKeywordsInControlFlowStatements": true,
+    "insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+    "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+    "placeOpenBraceOnNewLineForFunctions": true,
+    "placeOpenBraceOnNewLineForControlBlocks": true
+  },
+  "compileOnSave": false,
+  "filesGlob": [
+    "./**/*.ts",
+    "./src/**/*.tsx",
+    "!./typings/**/*.ts",
+    "./typings/index.d.ts",
+    "!./node_modules/**/*.ts",
+    "!./bower_components/**/*.ts"
+  ],
+  "files": [
+    "./src/ts/main.tsx",
+    "./src/ts/textform.tsx",
+    "./typings/index.d.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
+}
