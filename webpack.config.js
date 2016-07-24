@@ -24,4 +24,8 @@ module.exports = {
            { test: /\.js$/, loader: "source-map-loader" }
        ]
     },
+    externals: {
+    "react": "React",
+    "react-dom": "ReactDOM"
+  },
 };

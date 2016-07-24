@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "es6",
+    "module": "amd",
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
@@ -34,8 +34,12 @@
     "!./bower_components/**/*.ts"
   ],
   "files": [
+    "./src/ts/indexeddb.ts",
+    "./src/ts/interface.d.ts",
+    "./src/ts/form/form.tsx",
+    "./src/ts/form/lineform.tsx",
+    "./src/ts/formbox.tsx",
     "./src/ts/main.tsx",
-    "./src/ts/textform.tsx",
     "./typings/index.d.ts"
   ],
   "atom": {

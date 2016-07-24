@@ -13,7 +13,7 @@ var jade = require('gulp-jade');
 gulp.task("server", function () {
     browser({
         server: {
-            baseDir: "./public"                       //サーバー起動時のベースディレクトリ
+            baseDir: "./"                       //サーバー起動時のベースディレクトリ
         }
     });
 });
@@ -30,11 +30,11 @@ gulp.task("sass", function () {
 });
 
 gulp.task('jade', function () {
-    gulp.src("./src/html/*.jade")
+    gulp.src("./src/html/index.jade")
       .pipe(jade({
         pretty:true
       }))
-      .pipe(gulp.dest("./public/"))
+      .pipe(gulp.dest("./"))
       .pipe(browser.reload({stream: true}));
 });
 

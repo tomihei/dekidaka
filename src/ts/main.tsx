@@ -2,13 +2,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { TextForm } from "./textform";
+import { FormBox } from "./formbox";
 ReactDOM.render(
     <div className="container">
-      <div>
-        <TextForm label="ライン名"/>
-        <TextForm label="作業者名"/>
-      </div>
+      <FormBox />
     </div>,
     document.getElementById("example")
 );
