@@ -39,7 +39,9 @@
     "./src/ts/form/form.tsx",
     "./src/ts/form/lineform.tsx",
     "./src/ts/formbox.tsx",
+    "./src/ts/header.tsx",
     "./src/ts/main.tsx",
+    "./src/ts/tes.tsx",
     "./typings/index.d.ts"
   ],
   "atom": {
