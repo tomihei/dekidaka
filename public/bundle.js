@@ -44,16 +44,20 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(1), __webpack_require__(2), __webpack_require__(3), __webpack_require__(67), __webpack_require__(71), __webpack_require__(72)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, ReactDOM, react_router_1, FormBox, header_1, Ts) {
-	    "use strict";
-	    class Main extends React.Component {
-	        render() {
-	            return React.createElement("div", {className: "container"}, React.createElement(header_1.Header, null), React.createElement("div", {className: "main"}, this.props.children));
-	        }
+	"use strict";
+	const React = __webpack_require__(1);
+	const ReactDOM = __webpack_require__(2);
+	const react_router_1 = __webpack_require__(3);
+	const FormBox = __webpack_require__(67);
+	const header_1 = __webpack_require__(71);
+	const Ts = __webpack_require__(72);
+	class Main extends React.Component {
+	    render() {
+	        return React.createElement("div", {className: "container"}, React.createElement(header_1.Header, null), React.createElement("div", {className: "main"}, this.props.children));
 	    }
-	    let route = React.createElement(react_router_1.Router, {history: react_router_1.hashHistory}, React.createElement(react_router_1.Route, {path: "/", component: Main}, React.createElement(react_router_1.Route, {path: "/form", component: FormBox.FormBox}), React.createElement(react_router_1.Route, {path: "/tes", component: Ts.Ts})));
-	    ReactDOM.render(route, document.getElementById("example"));
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	}
+	let route = React.createElement(react_router_1.Router, {history: react_router_1.hashHistory}, React.createElement(react_router_1.Route, {path: "/", component: Main}, React.createElement(react_router_1.Route, {path: "/form", component: FormBox.FormBox}), React.createElement(react_router_1.Route, {path: "/tes", component: Ts.Ts})));
+	ReactDOM.render(route, document.getElementById("example"));
 
 
 /***/ },
@@ -5868,219 +5872,216 @@
 /* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(1), __webpack_require__(68), __webpack_require__(70)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, lineform_1, IndexDB) {
-	    "use strict";
-	    class FormBox extends React.Component {
-	        constructor() {
-	            super();
-	            this.onSubmit = this.onSubmit.bind(this);
-	            this.db = new IndexDB.LineData();
-	            this.db.onWriteEvent = (message) => {
-	                switch (message) {
-	                    case "success":
-	                        alert("moi");
-	                        break;
-	                    case "error":
-	                        alert("登録に失敗しました");
-	                        break;
-	                }
-	                ;
-	            };
-	            this.db.onReadEvent = (message, data) => {
-	                switch (message) {
-	                    case "success":
-	                        alert(data);
-	                        break;
-	                    case "error":
-	                        alert("データ読み込みに失敗しました");
-	                }
-	                ;
-	            };
-	        }
-	        onSubmit(data) {
-	            this.db.addData(data);
-	        }
-	        render() {
-	            return React.createElement("div", null, React.createElement(lineform_1.LineForm, {change: this.onSubmit}));
-	        }
+	"use strict";
+	const React = __webpack_require__(1);
+	const lineform_1 = __webpack_require__(68);
+	const IndexDB = __webpack_require__(70);
+	class FormBox extends React.Component {
+	    constructor() {
+	        super();
+	        this.onSubmit = this.onSubmit.bind(this);
+	        this.db = new IndexDB.LineData();
+	        this.db.onWriteEvent = (message) => {
+	            switch (message) {
+	                case "success":
+	                    alert("moi");
+	                    break;
+	                case "error":
+	                    alert("登録に失敗しました");
+	                    break;
+	            }
+	            ;
+	        };
+	        this.db.onReadEvent = (message, data) => {
+	            switch (message) {
+	                case "success":
+	                    alert(data);
+	                    break;
+	                case "error":
+	                    alert("データ読み込みに失敗しました");
+	            }
+	            ;
+	        };
 	    }
-	    exports.FormBox = FormBox;
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    onSubmit(data) {
+	        this.db.addData(data);
+	    }
+	    render() {
+	        return React.createElement("div", null, React.createElement(lineform_1.LineForm, {change: this.onSubmit}));
+	    }
+	}
+	exports.FormBox = FormBox;
 
 
 /***/ },
 /* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(1), __webpack_require__(69)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, form_1) {
-	    "use strict";
-	    class LineForm extends React.Component {
-	        constructor() {
-	            super();
-	            this.state = {
-	                data: {
-	                    linename: null,
-	                    partnum: null,
-	                    cicletime: 0,
-	                },
-	            };
-	            this.handleSubmit = this.handleSubmit.bind(this);
-	            this.checkValue = this.checkValue.bind(this);
-	        }
-	        handleSubmit(e) {
-	            e.preventDefault();
-	            this.props.change(this.state["data"]);
-	        }
-	        checkValue(type, data) {
-	            let kdata = {
-	                linename: this.state["data"].linename,
-	                partnum: this.state["data"].partnum,
-	                cicletime: this.state["data"].cicletime,
-	            };
-	            switch (type) {
-	                case "linename":
-	                    kdata.linename = data;
-	                    break;
-	                case "partnum":
-	                    kdata.partnum = data;
-	                    break;
-	                case "cicletime":
-	                    kdata.cicletime = data;
-	                    break;
-	            }
-	            this.setState({
-	                data: kdata,
-	            });
-	        }
-	        render() {
-	            return React.createElement("form", {onSubmit: this.handleSubmit}, React.createElement(form_1.Form, {type: "text", placeholder: "ライン名", name: "linename", checkValue: this.checkValue}), React.createElement(form_1.Form, {type: "text", placeholder: "品番", name: "partnum", checkValue: this.checkValue}), React.createElement(form_1.Form, {type: "number", placeholder: "サイクルタイム", name: "cicletime", checkValue: this.checkValue}), React.createElement("input", {type: "submit", className: "btn btn-default btn-block", value: "登録"}));
-	        }
+	"use strict";
+	const React = __webpack_require__(1);
+	const form_1 = __webpack_require__(69);
+	class LineForm extends React.Component {
+	    constructor() {
+	        super();
+	        this.state = {
+	            data: {
+	                linename: null,
+	                partnum: null,
+	                cicletime: 0,
+	            },
+	        };
+	        this.handleSubmit = this.handleSubmit.bind(this);
+	        this.checkValue = this.checkValue.bind(this);
 	    }
-	    exports.LineForm = LineForm;
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    handleSubmit(e) {
+	        e.preventDefault();
+	        this.props.change(this.state["data"]);
+	    }
+	    checkValue(type, data) {
+	        let kdata = {
+	            linename: this.state["data"].linename,
+	            partnum: this.state["data"].partnum,
+	            cicletime: this.state["data"].cicletime,
+	        };
+	        switch (type) {
+	            case "linename":
+	                kdata.linename = data;
+	                break;
+	            case "partnum":
+	                kdata.partnum = data;
+	                break;
+	            case "cicletime":
+	                kdata.cicletime = data;
+	                break;
+	        }
+	        this.setState({
+	            data: kdata,
+	        });
+	    }
+	    render() {
+	        return React.createElement("form", {onSubmit: this.handleSubmit}, React.createElement(form_1.Form, {type: "text", placeholder: "ライン名", name: "linename", checkValue: this.checkValue}), React.createElement(form_1.Form, {type: "text", placeholder: "品番", name: "partnum", checkValue: this.checkValue}), React.createElement(form_1.Form, {type: "number", placeholder: "サイクルタイム", name: "cicletime", checkValue: this.checkValue}), React.createElement("input", {type: "submit", className: "btn btn-default btn-block", value: "登録"}));
+	    }
+	}
+	exports.LineForm = LineForm;
 
 
 /***/ },
 /* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(1)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React) {
-	    "use strict";
-	    class Form extends React.Component {
-	        constructor() {
-	            super();
-	            this.handleChange = this.handleChange.bind(this);
-	        }
-	        handleChange(event) {
-	            this.props.checkValue(this.props.name, event.target.value);
-	        }
-	        render() {
-	            return React.createElement("div", {className: "form-group"}, React.createElement("input", {name: this.props.name, type: this.props.type, placeholder: this.props.placeholder, onChange: this.handleChange, className: "form-control", required: true}));
-	        }
+	"use strict";
+	const React = __webpack_require__(1);
+	class Form extends React.Component {
+	    constructor() {
+	        super();
+	        this.handleChange = this.handleChange.bind(this);
 	    }
-	    exports.Form = Form;
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    handleChange(event) {
+	        this.props.checkValue(this.props.name, event.target.value);
+	    }
+	    render() {
+	        return React.createElement("div", {className: "form-group"}, React.createElement("input", {name: this.props.name, type: this.props.type, placeholder: this.props.placeholder, onChange: this.handleChange, className: "form-control", required: true}));
+	    }
+	}
+	exports.Form = Form;
 
 
 /***/ },
 /* 70 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports) {
-	    "use strict";
-	    class IndexDB {
-	        constructor() {
-	            this.db = null;
-	            this.request = indexedDB.open("dekidata");
-	            this.connect();
-	        }
-	        connect() {
-	            this.request.onupgradeneeded = (event) => {
-	                this.db = event.target.result;
-	                let store = this.db.createObjectStore("lineinfo", { keyPath: "linename" });
-	                store.createIndex("linename", "linename", { unique: false });
-	            };
-	            this.request.onsuccess = (event) => {
-	                this.db = event.target.result;
-	            };
-	            this.request.onerror = (event) => {
-	                console.log(event.message);
-	            };
-	        }
-	        getAllData(target) {
-	            let trans = this.db.transaction(target, "readonly");
-	            let store = trans.objectStore(target);
-	            let request = store.openCursor();
-	            request.onsuccess = (event) => {
-	                let cursor = event.target.result;
-	                if (cursor) {
-	                    this.readsuccess(cursor.value);
-	                    cursor.continue();
-	                }
-	            };
-	        }
-	        readsuccess(data) {
-	            this.onReadEvent("success", data);
-	        }
-	        readerror() {
-	            this.onReadEvent("error");
-	        }
-	        writesuccess() {
-	            this.onWriteEvent("success");
-	        }
-	        writeerror() {
-	            this.onWriteEvent("error");
-	        }
+	"use strict";
+	class IndexDB {
+	    constructor() {
+	        this.db = null;
+	        this.request = indexedDB.open("dekidata");
+	        this.connect();
 	    }
-	    exports.IndexDB = IndexDB;
-	    class LineData extends IndexDB {
-	        constructor() {
-	            super();
-	        }
-	        addData(data) {
-	            let trans = this.db.transaction("lineinfo", "readwrite");
-	            let store = trans.objectStore("lineinfo");
-	            let request = store.put(data);
-	            request.onsuccess = (event) => {
-	                this.writesuccess();
-	            };
-	            request.onerror = () => {
-	                this.writeerror();
-	            };
-	        }
+	    connect() {
+	        this.request.onupgradeneeded = (event) => {
+	            this.db = event.target.result;
+	            let store = this.db.createObjectStore("lineinfo", { keyPath: "linename" });
+	            store.createIndex("linename", "linename", { unique: false });
+	        };
+	        this.request.onsuccess = (event) => {
+	            this.db = event.target.result;
+	        };
+	        this.request.onerror = (event) => {
+	            console.log(event.message);
+	        };
 	    }
-	    exports.LineData = LineData;
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    getAllData(target) {
+	        let trans = this.db.transaction(target, "readonly");
+	        let store = trans.objectStore(target);
+	        let request = store.openCursor();
+	        request.onsuccess = (event) => {
+	            let cursor = event.target.result;
+	            if (cursor) {
+	                this.readsuccess(cursor.value);
+	                cursor.continue();
+	            }
+	        };
+	    }
+	    readsuccess(data) {
+	        this.onReadEvent("success", data);
+	    }
+	    readerror() {
+	        this.onReadEvent("error");
+	    }
+	    writesuccess() {
+	        this.onWriteEvent("success");
+	    }
+	    writeerror() {
+	        this.onWriteEvent("error");
+	    }
+	}
+	exports.IndexDB = IndexDB;
+	class LineData extends IndexDB {
+	    constructor() {
+	        super();
+	    }
+	    addData(data) {
+	        let trans = this.db.transaction("lineinfo", "readwrite");
+	        let store = trans.objectStore("lineinfo");
+	        let request = store.put(data);
+	        request.onsuccess = (event) => {
+	            this.writesuccess();
+	        };
+	        request.onerror = () => {
+	            this.writeerror();
+	        };
+	    }
+	}
+	exports.LineData = LineData;
 
 
 /***/ },
 /* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(1), __webpack_require__(3)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, react_router_1) {
-	    "use strict";
-	    class Header extends React.Component {
-	        render() {
-	            return React.createElement("header", null, React.createElement("div", {className: "page-header"}, React.createElement("h3", null, "出来高管理"), React.createElement(react_router_1.Link, {to: "/tes"}, "home"), React.createElement(react_router_1.Link, {to: "/form"}, "ライン情報追加")));
-	        }
+	"use strict";
+	const React = __webpack_require__(1);
+	const react_router_1 = __webpack_require__(3);
+	class Header extends React.Component {
+	    render() {
+	        return React.createElement("header", null, React.createElement("div", {className: "page-header"}, React.createElement("h3", null, "出来高管理"), React.createElement(react_router_1.Link, {to: "/tes"}, "home"), React.createElement(react_router_1.Link, {to: "/form"}, "ライン情報追加")));
 	    }
-	    exports.Header = Header;
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	}
+	exports.Header = Header;
 
 
 /***/ },
 /* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(1)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React) {
-	    "use strict";
-	    class Ts extends React.Component {
-	        render() {
-	            return React.createElement("h1", null, "MOI");
-	        }
+	"use strict";
+	const React = __webpack_require__(1);
+	class Ts extends React.Component {
+	    render() {
+	        return React.createElement("h1", null, "MOI");
 	    }
-	    exports.Ts = Ts;
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	}
+	exports.Ts = Ts;
 
 
 /***/ }
