@@ -36,11 +36,12 @@
   "files": [
     "./src/ts/indexeddb.ts",
     "./src/ts/interface.d.ts",
-    "./src/__test__/list.tsx",
+    "./src/__test__/list-test.tsx",
     "./src/ts/form/form.tsx",
     "./src/ts/form/lineform.tsx",
     "./src/ts/formbox.tsx",
     "./src/ts/header.tsx",
+    "./src/ts/list/linelist.tsx",
     "./src/ts/list/list.tsx",
     "./src/ts/main.tsx",
     "./src/ts/tes.tsx",

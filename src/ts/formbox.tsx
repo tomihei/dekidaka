@@ -1,12 +1,12 @@
 import * as React from "react";
 import { LineForm } from "./form/lineform";
-import * as IndexDB from "./indexeddb";
+import * as DB from "./indexeddb";
 export class FormBox extends React.Component<{}, {}> {
-  public db: IndexDB.LineData;
+  public db: DB.IndexDB;
   constructor() {
     super();
     this.onSubmit = this.onSubmit.bind(this);
-    this.db = new IndexDB.LineData();
+    this.db = new DB.IndexDB("lineinfo");
     this.db.onWriteEvent = (message: string) => {
       switch (message) {
         case "success" :

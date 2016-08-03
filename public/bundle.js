@@ -5875,12 +5875,12 @@
 	"use strict";
 	const React = __webpack_require__(1);
 	const lineform_1 = __webpack_require__(68);
-	const IndexDB = __webpack_require__(70);
+	const DB = __webpack_require__(70);
 	class FormBox extends React.Component {
 	    constructor() {
 	        super();
 	        this.onSubmit = this.onSubmit.bind(this);
-	        this.db = new IndexDB.LineData();
+	        this.db = new DB.IndexDB("lineinfo");
 	        this.db.onWriteEvent = (message) => {
 	            switch (message) {
 	                case "success":
@@ -5992,67 +5992,63 @@
 
 	"use strict";
 	class IndexDB {
-	    constructor() {
+	    constructor(target) {
 	        this.db = null;
-	        this.request = indexedDB.open("dekidata");
+	        this.table = target;
+	        this.request = indexedDB.open("dekidaka");
 	        this.connect();
 	    }
 	    connect() {
 	        this.request.onupgradeneeded = (event) => {
 	            this.db = event.target.result;
-	            let store = this.db.createObjectStore("lineinfo", { keyPath: "linename" });
-	            store.createIndex("linename", "linename", { unique: false });
+	            let store = this.db.createObjectStore(this.table, { keyPath: "_id", autoIncrement: true });
+	            this.onConnect("connect");
 	        };
 	        this.request.onsuccess = (event) => {
 	            this.db = event.target.result;
+	            this.onConnect("connect");
 	        };
 	        this.request.onerror = (event) => {
 	            console.log(event.message);
+	            this.onConnect("error");
 	        };
 	    }
-	    getAllData(target) {
-	        let trans = this.db.transaction(target, "readonly");
-	        let store = trans.objectStore(target);
+	    getAllData() {
+	        let trans = this.db.transaction(this.table, "readonly");
+	        let store = trans.objectStore(this.table);
 	        let request = store.openCursor();
 	        request.onsuccess = (event) => {
 	            let cursor = event.target.result;
 	            if (cursor) {
-	                this.readsuccess(cursor.value);
+	                this.onReadEvent("success", cursor.value);
 	                cursor.continue();
 	            }
 	        };
 	    }
-	    readsuccess(data) {
-	        this.onReadEvent("success", data);
+	    addData(data) {
+	        let trans = this.db.transaction(this.table, "readwrite");
+	        let store = trans.objectStore(this.table);
+	        let request = store.put(data);
+	        request.onsuccess = (event) => {
+	            this.onWriteEvent("success");
+	        };
+	        request.onerror = () => {
+	            this.onWriteEvent("error");
+	        };
 	    }
-	    readerror() {
-	        this.onReadEvent("error");
-	    }
-	    writesuccess() {
-	        this.onWriteEvent("success");
-	    }
-	    writeerror() {
-	        this.onWriteEvent("error");
+	    deleteData(key) {
+	        let trans = this.db.transaction(this.table, "readwrite");
+	        let store = trans.objectStore(this.table);
+	        let request = store.delete(key);
+	        request.onsuccess = (event) => {
+	            this.onWriteEvent("success");
+	        };
+	        request.onerror = () => {
+	            this.onWriteEvent("error");
+	        };
 	    }
 	}
 	exports.IndexDB = IndexDB;
-	class LineData extends IndexDB {
-	    constructor() {
-	        super();
-	    }
-	    addData(data) {
-	        let trans = this.db.transaction("lineinfo", "readwrite");
-	        let store = trans.objectStore("lineinfo");
-	        let request = store.put(data);
-	        request.onsuccess = (event) => {
-	            this.writesuccess();
-	        };
-	        request.onerror = () => {
-	            this.writeerror();
-	        };
-	    }
-	}
-	exports.LineData = LineData;
 
 
 /***/ },
@@ -6076,12 +6072,98 @@
 
 	"use strict";
 	const React = __webpack_require__(1);
+	const linelist_1 = __webpack_require__(73);
 	class Ts extends React.Component {
 	    render() {
-	        return React.createElement("h1", null, "MOI");
+	        return React.createElement(linelist_1.LineList, null);
 	    }
 	}
 	exports.Ts = Ts;
+
+
+/***/ },
+/* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	const React = __webpack_require__(1);
+	const list_1 = __webpack_require__(74);
+	const DB = __webpack_require__(70);
+	class List extends React.Component {
+	    render() {
+	        let tr = this.props.value.map((data) => {
+	            return React.createElement(list_1.TrData, {key: data._id, value: data, onClick: this.props.onEvent});
+	        });
+	        let thead = this.props.th.map((data) => {
+	            return React.createElement("th", {key: data}, data);
+	        });
+	        return React.createElement("table", {className: "table table-condensed table-striped table-hover"}, React.createElement("thead", null, React.createElement("tr", null, thead)), React.createElement("tbody", null, tr));
+	    }
+	}
+	exports.List = List;
+	class LineList extends React.Component {
+	    constructor() {
+	        super();
+	        this.onDelete = this.onDelete.bind(this);
+	        this.db = new DB.IndexDB("lineinfo");
+	        this.db.onReadEvent = (mes, data) => {
+	            if (mes === "success") {
+	                let moi = data;
+	                console.log(moi);
+	            }
+	            else {
+	                alert("データ読み込みに失敗");
+	            }
+	        };
+	        this.db.onConnect = (mes) => {
+	            if (mes === "connect") {
+	                this.db.getAllData();
+	            }
+	        };
+	    }
+	    onDelete(target) {
+	        console.log("moi");
+	    }
+	    render() {
+	        console.log(this.data);
+	        let thead = ["ライン名", "品番", "CT", ""];
+	        return React.createElement(List, {value: this.data, th: thead, onEvent: this.onDelete});
+	    }
+	}
+	exports.LineList = LineList;
+
+
+/***/ },
+/* 74 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	const React = __webpack_require__(1);
+	class TrData extends React.Component {
+	    constructor() {
+	        super();
+	        this.handleClick = this.handleClick.bind(this);
+	    }
+	    handleClick(e) {
+	        e.preventDefault();
+	        this.props.onClick(this.props.value._id);
+	    }
+	    render() {
+	        let td = [];
+	        let num = 1;
+	        for (let i in this.props.value) {
+	            if (i === "_id") {
+	                continue;
+	            }
+	            ;
+	            td.push(React.createElement("td", {key: this.props.value._id + num.toString()}, this.props.value[i]));
+	            num++;
+	        }
+	        ;
+	        return React.createElement("tr", null, td, React.createElement("td", null, React.createElement("input", {onClick: this.handleClick, type: "submit", className: "btn btn-xs btn-primary", value: "登録"})));
+	    }
+	}
+	exports.TrData = TrData;
 
 
 /***/ }

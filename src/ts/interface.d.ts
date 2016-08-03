@@ -9,6 +9,17 @@ interface ALineData {
   cicletime: number;
 }
 
+interface DBLineData {
+    _id: number;
+    linename: string;
+    partnum: string;
+    cicletime: number;
+}
+
+interface LineTableData {
+  data: ALineData[];
+}
+
 interface LineFormData {
   name: string;
   type: string;
