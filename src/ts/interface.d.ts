@@ -24,5 +24,10 @@ interface LineFormData {
   name: string;
   type: string;
   placeholder: string;
-  checkValue: Function;
+}
+
+interface LineId {
+  params: {
+    line_id: string
+  };
 }

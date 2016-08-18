@@ -1,6 +1,7 @@
 import * as React from "react";
 import { List } from "./list";
 import * as DB from "../indexeddb";
+import {Router, Route, Link,History} from "react-router";
 
 
 
@@ -9,18 +10,27 @@ interface LineData {
   value: DBLineData[];
 }
 
+export class LineInfo extends React.Component<{}, {}> {
+  public context: {
+      router: History
+  };
 
-export class LineList extends React.Component<{}, {}> {
+  static contextTypes = {
+      router: React.PropTypes.object
+  };
   public db: DB.IndexDB;
   constructor() {
     super();
-    this.onDelete = this.onDelete.bind(this);
+    this.onClick = this.onClick.bind(this);
     // lineinfoテーブルに接続
     this.db = new DB.IndexDB("lineinfo");
     this.state = { val: []};
     // データ読み込み時ステートを更新
     this.db.onReadEvent = (mes: string, data?) => {
       if (mes === "success") {
+        data.map((data) => {
+            delete data['cicletime'];
+        });
         this.setState({ val : data});
       } else {
         alert("データ読み込みに失敗");
@@ -42,19 +52,16 @@ export class LineList extends React.Component<{}, {}> {
         }
     };
   }
-  public onDelete(target) {
-    let res = confirm("削除しますか?");
-    if ( res === true) {
-      this.db.deleteData(target);
-    }
+  public onClick(target) {
+    this.context.router.push("/lineinfo/" + target);
   }
   public render() {
     // tableヘッダー
-    let thead = ["ライン名", "品番", "CT", ""];
+    let thead = ["ライン名", "品番"];
     return <List
             value={this.state["val"]}
             th={thead}
-            onEvent={this.onDelete}
+            onEvent={this.onClick}
             inputOn={false}
            />;
   }

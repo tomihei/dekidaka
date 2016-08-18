@@ -4,7 +4,7 @@
   "description": "",
   "author": "",
   "scripts": {
-    "test:ts":"mocha --require ts-node/register \"./**/__test__/**/*.ts\"",
+    "test:ts": "mocha --require ts-node/register \"./**/__test__/**/*.ts\"",
     "test:tsx": "mocha --require ts-node/register ./test-setup.es6 \"./**/__test__/**/*.tsx\""
   },
   "license": "ISC",
@@ -34,6 +34,9 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "d3": "^4.2.2",
+    "react-addons-css-transition-group": "^15.3.0",
+    "react-nvd3": "^0.5.7",
     "react-router": "^2.6.0"
   }
 }

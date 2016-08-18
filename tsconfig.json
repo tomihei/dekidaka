@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
+    "module": "amd",
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
@@ -39,8 +39,12 @@
     "./src/__test__/list-test.tsx",
     "./src/ts/form/form.tsx",
     "./src/ts/form/lineform.tsx",
+    "./src/ts/form/outputform.tsx",
     "./src/ts/formbox.tsx",
+    "./src/ts/graph.tsx",
     "./src/ts/header.tsx",
+    "./src/ts/linedata.tsx",
+    "./src/ts/list/lineinfo.tsx",
     "./src/ts/list/linelist.tsx",
     "./src/ts/list/list.tsx",
     "./src/ts/main.tsx",

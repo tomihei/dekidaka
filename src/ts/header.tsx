@@ -7,8 +7,9 @@ export class Header extends React.Component<{}, {}> {
     return <header>
             <div className="page-header">
               <h3>出来高管理</h3>
-              <Link to="/tes">home</Link>
+              <Link to="/lineinfo">home</Link>
               <Link to="/form">ライン情報追加</Link>
+              <Link to="/tes">ライン情報編集</Link>
             </div>
            </header>;
   }

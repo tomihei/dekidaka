@@ -44,14 +44,24 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(66), __webpack_require__(3), __webpack_require__(67), __webpack_require__(1), __webpack_require__(71), __webpack_require__(74), __webpack_require__(75), __webpack_require__(76)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, ReactDOM, react_router_1, FormBox, header_1, Ts, Output, LineInfo, LineAllData) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(66), __webpack_require__(3), __webpack_require__(67), __webpack_require__(1), __webpack_require__(71), __webpack_require__(74), __webpack_require__(75), __webpack_require__(76)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, ReactDOM, react_router_1, FormBox, header_1, Ts, Output, LineInfo, LineAllData) {
 	    "use strict";
-	    class Main extends React.Component {
-	        render() {
-	            return React.createElement("div", null, React.createElement(header_1.Header, null), React.createElement("div", {className: "main"}, this.props.children));
+	    var Main = (function (_super) {
+	        __extends(Main, _super);
+	        function Main() {
+	            _super.apply(this, arguments);
 	        }
-	    }
-	    let route = React.createElement(react_router_1.Router, {history: react_router_1.hashHistory}, React.createElement(react_router_1.Route, {path: "/", component: Main}, React.createElement(react_router_1.Route, {path: "/form", component: FormBox.FormBox}), React.createElement(react_router_1.Route, {path: "/tes", component: Ts.Ts}), React.createElement(react_router_1.Route, {path: "/lineinfo", component: LineInfo.LineInfo}), React.createElement(react_router_1.Route, {path: "/lineinfo/:line_id", component: LineAllData.LineAllData}), React.createElement(react_router_1.Route, {path: "/output/:line_id", component: Output.OutputForm})));
+	        Main.prototype.render = function () {
+	            return React.createElement("div", {className: "container"}, React.createElement("div", {className: "row"}, React.createElement(header_1.Header, null), React.createElement("div", {className: "main col-sm-12"}, this.props.children)));
+	        };
+	        return Main;
+	    }(React.Component));
+	    var route = React.createElement(react_router_1.Router, {history: react_router_1.hashHistory}, React.createElement(react_router_1.Route, {path: "/", component: Main}, React.createElement(react_router_1.Route, {path: "/form", component: FormBox.FormBox}), React.createElement(react_router_1.Route, {path: "/tes", component: Ts.Ts}), React.createElement(react_router_1.Route, {path: "/lineinfo", component: LineInfo.LineInfo}), React.createElement(react_router_1.Route, {path: "/lineinfo/:line_id", component: LineAllData.LineAllData}), React.createElement(react_router_1.Route, {path: "/output/:line_id", component: Output.OutputForm})));
 	    ReactDOM.render(route, document.getElementById("example"));
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -60,13 +70,23 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(3)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, react_router_1) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(3)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, react_router_1) {
 	    "use strict";
-	    class Header extends React.Component {
-	        render() {
-	            return React.createElement("header", null, React.createElement("div", {className: "page-header"}, React.createElement("h3", null, "出来高管理"), React.createElement(react_router_1.Link, {to: "/lineinfo"}, "home"), React.createElement(react_router_1.Link, {to: "/form"}, "ライン情報追加"), React.createElement(react_router_1.Link, {to: "/tes"}, "ライン情報編集")));
+	    var Header = (function (_super) {
+	        __extends(Header, _super);
+	        function Header() {
+	            _super.apply(this, arguments);
 	        }
-	    }
+	        Header.prototype.render = function () {
+	            return React.createElement("header", null, React.createElement("div", {className: "col-sm-12 page-header"}, React.createElement("h3", null, "出来高管理"), React.createElement(react_router_1.Link, {to: "/lineinfo"}, "home"), React.createElement(react_router_1.Link, {to: "/form"}, "ライン情報追加"), React.createElement(react_router_1.Link, {to: "/tes"}, "ライン情報編集")));
+	        };
+	        return Header;
+	    }(React.Component));
 	    exports.Header = Header;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -5804,15 +5824,22 @@
 /* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(68), __webpack_require__(70)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, lineform_1, DB) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(68), __webpack_require__(70)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, lineform_1, DB) {
 	    "use strict";
-	    class FormBox extends React.Component {
-	        constructor() {
-	            super();
+	    var FormBox = (function (_super) {
+	        __extends(FormBox, _super);
+	        function FormBox() {
+	            var _this = this;
+	            _super.call(this);
 	            this.connect = false;
 	            this.onSubmit = this.onSubmit.bind(this);
 	            this.db = new DB.IndexDB("lineinfo");
-	            this.db.onWriteEvent = (message) => {
+	            this.db.onWriteEvent = function (message) {
 	                if (message) {
 	                    alert("moi");
 	                }
@@ -5821,7 +5848,7 @@
 	                }
 	                ;
 	            };
-	            this.db.onReadEvent = (message, data) => {
+	            this.db.onReadEvent = function (message, data) {
 	                if (message === "success") {
 	                    alert(data);
 	                }
@@ -5830,9 +5857,9 @@
 	                }
 	                ;
 	            };
-	            this.db.onConnect = (message) => {
+	            this.db.onConnect = function (message) {
 	                if (message) {
-	                    this.connect = true;
+	                    _this.connect = true;
 	                }
 	                else {
 	                    alert("DBに接続できていません");
@@ -5840,13 +5867,14 @@
 	                ;
 	            };
 	        }
-	        onSubmit(data) {
+	        FormBox.prototype.onSubmit = function (data) {
 	            this.db.addData(data);
-	        }
-	        render() {
+	        };
+	        FormBox.prototype.render = function () {
 	            return React.createElement("div", null, React.createElement(lineform_1.LineForm, {change: this.onSubmit}));
-	        }
-	    }
+	        };
+	        return FormBox;
+	    }(React.Component));
 	    exports.FormBox = FormBox;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -5855,11 +5883,17 @@
 /* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(69)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, form_1) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(69)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, form_1) {
 	    "use strict";
-	    class LineForm extends React.Component {
-	        constructor() {
-	            super();
+	    var LineForm = (function (_super) {
+	        __extends(LineForm, _super);
+	        function LineForm() {
+	            _super.call(this);
 	            this.state = {
 	                data: {
 	                    linename: null,
@@ -5870,12 +5904,12 @@
 	            this.handleSubmit = this.handleSubmit.bind(this);
 	            this.checkValue = this.checkValue.bind(this);
 	        }
-	        handleSubmit(e) {
+	        LineForm.prototype.handleSubmit = function (e) {
 	            e.preventDefault();
 	            this.props.change(this.state["data"]);
-	        }
-	        checkValue(type, data) {
-	            let kdata = {
+	        };
+	        LineForm.prototype.checkValue = function (type, data) {
+	            var kdata = {
 	                linename: this.state["data"].linename,
 	                partnum: this.state["data"].partnum,
 	                cicletime: this.state["data"].cicletime,
@@ -5894,9 +5928,9 @@
 	            this.setState({
 	                data: kdata,
 	            });
-	        }
-	        render() {
-	            let LineData = [{
+	        };
+	        LineForm.prototype.render = function () {
+	            var LineData = [{
 	                    name: "linename",
 	                    placeholder: "ライン名",
 	                    type: "text",
@@ -5911,9 +5945,10 @@
 	                    placeholder: "サイクルタイム",
 	                    type: "number",
 	                }];
-	            return React.createElement("div", {className: "cover-container"}, React.createElement("form", {onSubmit: this.handleSubmit}, React.createElement(form_1.FormTemp, {value: LineData, checkValue: this.checkValue}), React.createElement("button", {className: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary btn-block space"}, "登録")));
-	        }
-	    }
+	            return React.createElement("div", {className: "cover-container"}, React.createElement("form", {onSubmit: this.handleSubmit}, React.createElement(form_1.FormTemp, {value: LineData, checkValue: this.checkValue}), React.createElement("input", {type: "submit", className: "btn btn-default btn-block", value: "登録"})));
+	        };
+	        return LineForm;
+	    }(React.Component));
 	    exports.LineForm = LineForm;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -5922,34 +5957,51 @@
 /* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React) {
 	    "use strict";
-	    class Input extends React.Component {
-	        render() {
-	            return React.createElement("input", {type: "submit", className: "btn btn-default btn-block", value: this.props.inputvalue, onClick: this.props.onSubmit});
+	    var Input = (function (_super) {
+	        __extends(Input, _super);
+	        function Input() {
+	            _super.apply(this, arguments);
 	        }
-	    }
+	        Input.prototype.render = function () {
+	            return React.createElement("input", {type: "submit", className: "btn btn-default btn-block", value: this.props.inputvalue, onClick: this.props.onSubmit});
+	        };
+	        return Input;
+	    }(React.Component));
 	    exports.Input = Input;
-	    class FormTemp extends React.Component {
-	        render() {
-	            let input;
-	            let form = this.props.value.map((data) => {
-	                return React.createElement(Form, {type: data.type, key: data.name, name: data.name, placeholder: data.placeholder, checkValue: this.props.checkValue});
+	    var FormTemp = (function (_super) {
+	        __extends(FormTemp, _super);
+	        function FormTemp() {
+	            _super.apply(this, arguments);
+	        }
+	        FormTemp.prototype.render = function () {
+	            var _this = this;
+	            var input;
+	            var form = this.props.value.map(function (data) {
+	                return React.createElement(Form, {type: data.type, key: data.name, name: data.name, placeholder: data.placeholder, checkValue: _this.props.checkValue});
 	            });
 	            return React.createElement("div", null, form);
-	        }
-	    }
+	        };
+	        return FormTemp;
+	    }(React.Component));
 	    exports.FormTemp = FormTemp;
-	    class Form extends React.Component {
-	        constructor() {
-	            super();
+	    var Form = (function (_super) {
+	        __extends(Form, _super);
+	        function Form() {
+	            _super.call(this);
 	            this.handleChange = this.handleChange.bind(this);
 	        }
-	        handleChange(event) {
+	        Form.prototype.handleChange = function (event) {
 	            this.props.checkValue(this.props.name, event.target.value);
-	        }
-	        render() {
-	            let num;
+	        };
+	        Form.prototype.render = function () {
+	            var num;
 	            if (this.props.type === "number") {
 	                num = React.createElement("input", {name: this.props.name, type: this.props.type, step: "0.1", onChange: this.handleChange, className: "input", required: true});
 	            }
@@ -5960,27 +6012,35 @@
 	                num = React.createElement("input", {name: this.props.name, type: this.props.type, onChange: this.handleChange, className: "input", required: true});
 	            }
 	            return React.createElement("div", {className: "group"}, num, React.createElement("span", {className: "highlight"}), React.createElement("span", {className: "bar"}), React.createElement("label", {className: "label"}, this.props.placeholder));
-	        }
-	    }
+	        };
+	        return Form;
+	    }(React.Component));
 	    exports.Form = Form;
-	    class Date extends React.Component {
-	        constructor() {
-	            super();
+	    var Date = (function (_super) {
+	        __extends(Date, _super);
+	        function Date() {
+	            _super.call(this);
 	            this.handleChange = this.handleChange.bind(this);
 	        }
-	        handleChange(event) {
+	        Date.prototype.handleChange = function (event) {
 	            this.props.onChange(this.props.name, event.target.value);
-	        }
-	        render() {
-	            return React.createElement("div", {className: "group"}, React.createElement("input", {type: "date", onChange: this.handleChange, className: "input", required: true}), React.createElement("span", {className: "highlight"}), React.createElement("span", {className: "bar"}), React.createElement("span", {className: "date-label"}, this.props.label));
-	        }
-	    }
+	        };
+	        Date.prototype.render = function () {
+	            return React.createElement("div", {className: "group"}, React.createElement("input", {type: "date", onChange: this.handleChange, className: "input"}), React.createElement("span", {className: "highlight"}), React.createElement("span", {className: "bar"}), React.createElement("span", {className: "date-label"}, this.props.label));
+	        };
+	        return Date;
+	    }(React.Component));
 	    exports.Date = Date;
-	    class FixedForm extends React.Component {
-	        render() {
-	            return React.createElement("div", {className: "group"}, React.createElement("span", {className: "fixed-input"}, this.props.value), React.createElement("span", {className: "fixed-highlight"}), React.createElement("span", {className: "fixed-bar"}), React.createElement("span", {className: "fixed-label"}, this.props.label));
+	    var FixedForm = (function (_super) {
+	        __extends(FixedForm, _super);
+	        function FixedForm() {
+	            _super.apply(this, arguments);
 	        }
-	    }
+	        FixedForm.prototype.render = function () {
+	            return React.createElement("div", {className: "group"}, React.createElement("span", {className: "fixed-input"}, this.props.value), React.createElement("span", {className: "fixed-highlight"}), React.createElement("span", {className: "fixed-bar"}), React.createElement("span", {className: "fixed-label"}, this.props.label));
+	        };
+	        return FixedForm;
+	    }(React.Component));
 	    exports.FixedForm = FixedForm;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -5991,115 +6051,122 @@
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports) {
 	    "use strict";
-	    class IndexDB {
-	        constructor(target) {
+	    var IndexDB = (function () {
+	        function IndexDB(target) {
+	            var _this = this;
 	            this.db = null;
 	            this.table = target;
 	            this.request = indexedDB.open("dekidaka");
-	            this.request.onupgradeneeded = (event) => {
-	                this.db = event.target.result;
-	                this.index();
-	                this.onConnect(true);
+	            this.request.onupgradeneeded = function (event) {
+	                _this.db = event.target.result;
+	                _this.index();
+	                _this.onConnect(true);
 	            };
-	            this.request.onsuccess = (event) => {
-	                this.db = event.target.result;
-	                this.onConnect(true);
+	            this.request.onsuccess = function (event) {
+	                _this.db = event.target.result;
+	                _this.onConnect(true);
 	            };
-	            this.request.onerror = (event) => {
+	            this.request.onerror = function (event) {
 	                console.log(event.message);
-	                this.onConnect(false);
+	                _this.onConnect(false);
 	            };
 	        }
-	        getAllData() {
-	            let trans = this.db.transaction(this.table, "readonly");
-	            let store = trans.objectStore(this.table);
-	            let request = store.openCursor();
-	            let data = [];
-	            request.onsuccess = (event) => {
-	                let cursor = event.target.result;
+	        IndexDB.prototype.getAllData = function () {
+	            var _this = this;
+	            var trans = this.db.transaction(this.table, "readonly");
+	            var store = trans.objectStore(this.table);
+	            var request = store.openCursor();
+	            var data = [];
+	            request.onsuccess = function (event) {
+	                var cursor = event.target.result;
 	                if (cursor) {
 	                    data.push(cursor.value);
 	                    cursor.continue();
 	                }
 	                else {
-	                    this.onReadEvent("success", data);
+	                    _this.onReadEvent("success", data);
 	                }
 	                ;
 	            };
-	        }
-	        getDataforTable(table, key) {
-	            let trans = this.db.transaction(table, "readonly");
-	            let store = trans.objectStore(table);
-	            let request = store.get(key);
-	            let data;
-	            request.onsuccess = (event) => {
+	        };
+	        IndexDB.prototype.getDataforTable = function (table, key) {
+	            var _this = this;
+	            var trans = this.db.transaction(table, "readonly");
+	            var store = trans.objectStore(table);
+	            var request = store.get(key);
+	            var data;
+	            request.onsuccess = function (event) {
 	                data = request.result;
-	                this.onReadEvent("successtable", data);
+	                _this.onReadEvent("successtable", data);
 	            };
-	            request.onerror = (event) => {
-	                this.onReadEvent("error");
+	            request.onerror = function (event) {
+	                _this.onReadEvent("error");
 	            };
-	        }
-	        getData(key) {
-	            let trans = this.db.transaction(this.table, "readonly");
-	            let store = trans.objectStore(this.table);
-	            let request = store.get(key);
-	            let data;
-	            request.onsuccess = (event) => {
+	        };
+	        IndexDB.prototype.getData = function (key) {
+	            var _this = this;
+	            var trans = this.db.transaction(this.table, "readonly");
+	            var store = trans.objectStore(this.table);
+	            var request = store.get(key);
+	            var data;
+	            request.onsuccess = function (event) {
 	                data = request.result;
-	                this.onReadEvent("success", data);
+	                _this.onReadEvent("success", data);
 	            };
-	            request.onerror = (event) => {
-	                this.onReadEvent("error");
+	            request.onerror = function (event) {
+	                _this.onReadEvent("error");
 	            };
-	        }
-	        getCursorData(index, key) {
-	            let trans = this.db.transaction(this.table, "readonly");
-	            let store = trans.objectStore(this.table);
-	            let indexed = store.index(index);
-	            let keyrange = IDBKeyRange.only(key);
-	            let request = indexed.openCursor(keyrange);
-	            let data = [];
-	            request.onsuccess = (event) => {
-	                let cursor = event.target.result;
+	        };
+	        IndexDB.prototype.getCursorData = function (index, key) {
+	            var _this = this;
+	            var trans = this.db.transaction(this.table, "readonly");
+	            var store = trans.objectStore(this.table);
+	            var indexed = store.index(index);
+	            var keyrange = IDBKeyRange.only(key);
+	            var request = indexed.openCursor(keyrange);
+	            var data = [];
+	            request.onsuccess = function (event) {
+	                var cursor = event.target.result;
 	                if (cursor) {
 	                    data.push(cursor.value);
 	                    cursor.continue();
 	                }
 	                else {
-	                    this.onReadEvent("success", data);
+	                    _this.onReadEvent("success", data);
 	                }
 	                ;
 	            };
-	        }
-	        addData(data) {
-	            let trans = this.db.transaction(this.table, "readwrite");
-	            let store = trans.objectStore(this.table);
-	            let request = store.put(data);
-	            request.onsuccess = (event) => {
-	                this.onWriteEvent(true);
+	        };
+	        IndexDB.prototype.addData = function (data) {
+	            var _this = this;
+	            var trans = this.db.transaction(this.table, "readwrite");
+	            var store = trans.objectStore(this.table);
+	            var request = store.put(data);
+	            request.onsuccess = function (event) {
+	                _this.onWriteEvent(true);
 	            };
-	            request.onerror = (event) => {
+	            request.onerror = function (event) {
 	                console.log(event);
-	                this.onWriteEvent(false);
+	                _this.onWriteEvent(false);
 	            };
-	        }
-	        deleteData(key) {
-	            let trans = this.db.transaction(this.table, "readwrite");
-	            let store = trans.objectStore(this.table);
-	            let request = store.delete(key);
-	            request.onsuccess = (event) => {
-	                this.onWriteEvent(true);
+	        };
+	        IndexDB.prototype.deleteData = function (key) {
+	            var _this = this;
+	            var trans = this.db.transaction(this.table, "readwrite");
+	            var store = trans.objectStore(this.table);
+	            var request = store.delete(key);
+	            request.onsuccess = function (event) {
+	                _this.onWriteEvent(true);
 	            };
-	            request.onerror = () => {
-	                this.onWriteEvent(false);
+	            request.onerror = function () {
+	                _this.onWriteEvent(false);
 	            };
-	        }
-	        index() {
-	            let store = this.db.createObjectStore("lineinfo", { keyPath: "_id", autoIncrement: true });
+	        };
+	        IndexDB.prototype.index = function () {
+	            var store = this.db.createObjectStore("lineinfo", { keyPath: "_id", autoIncrement: true });
 	            store.createIndex("linepartIndex", ["linename", "partnum"], { unique: true });
 	            store.createIndex("linename", "linename");
-	            let store2 = this.db.createObjectStore("linedata", { keyPath: "_id", autoIncrement: true });
+	            var store2 = this.db.createObjectStore("linedata", { keyPath: "_id", autoIncrement: true });
 	            store2.createIndex("linepartdateIndex", ["linename", "partnum", "date"], { unique: true });
 	            store2.createIndex("linepartIndex", ["linename", "partnum"], { unique: false });
 	            store2.createIndex("linename", "linename");
@@ -6107,9 +6174,10 @@
 	            store2.createIndex("lineeffi", ["linename", "lineeffi"], { unique: false });
 	            store2.createIndex("stoptime", ["linename", "stoptime"], { unique: false });
 	            store2.createIndex("output", "output");
-	        }
+	        };
 	        ;
-	    }
+	        return IndexDB;
+	    }());
 	    exports.IndexDB = IndexDB;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -6118,13 +6186,23 @@
 /* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(72)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, linelist_1) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(72)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, linelist_1) {
 	    "use strict";
-	    class Ts extends React.Component {
-	        render() {
-	            return React.createElement(linelist_1.LineList, null);
+	    var Ts = (function (_super) {
+	        __extends(Ts, _super);
+	        function Ts() {
+	            _super.apply(this, arguments);
 	        }
-	    }
+	        Ts.prototype.render = function () {
+	            return React.createElement(linelist_1.LineList, null);
+	        };
+	        return Ts;
+	    }(React.Component));
 	    exports.Ts = Ts;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -6133,47 +6211,53 @@
 /* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(73), __webpack_require__(70)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, list_1, DB) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(73), __webpack_require__(70)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, list_1, DB) {
 	    "use strict";
-	    class LineList extends React.Component {
-	        constructor() {
-	            super();
+	    var LineList = (function (_super) {
+	        __extends(LineList, _super);
+	        function LineList() {
+	            var _this = this;
+	            _super.call(this);
 	            this.onDelete = this.onDelete.bind(this);
 	            this.db = new DB.IndexDB("lineinfo");
 	            this.state = { val: [] };
-	            this.db.onReadEvent = (mes, data) => {
+	            this.db.onReadEvent = function (mes, data) {
 	                if (mes === "success") {
-	                    this.setState({ val: data });
+	                    _this.setState({ val: data });
 	                }
 	                else {
 	                    alert("データ読み込みに失敗");
 	                }
 	            };
-	            this.db.onWriteEvent = (mes) => {
+	            this.db.onWriteEvent = function (mes) {
 	                if (mes) {
-	                    this.db.getAllData();
+	                    _this.db.getAllData();
 	                }
 	                else {
 	                    alert("削除に失敗しました");
 	                }
 	            };
-	            this.db.onConnect = (mes) => {
+	            this.db.onConnect = function (mes) {
 	                if (mes) {
-	                    this.db.getAllData();
+	                    _this.db.getAllData();
 	                }
 	            };
 	        }
-	        onDelete(target) {
-	            let res = confirm("削除しますか?");
-	            if (res === true) {
-	                this.db.deleteData(target);
-	            }
-	        }
-	        render() {
-	            let thead = ["ライン名", "品番", "CT", ""];
-	            return React.createElement(list_1.List, {value: this.state["val"], th: thead, onEvent: this.onDelete, inputOn: false});
-	        }
-	    }
+	        LineList.prototype.onDelete = function (target) {
+	            console.log("Moi");
+	            this.db.deleteData(target);
+	        };
+	        LineList.prototype.render = function () {
+	            var thead = ["ライン名", "品番", "CT", ""];
+	            return React.createElement(list_1.List, {value: this.state["val"], th: thead, onEvent: this.onDelete, inputOn: true});
+	        };
+	        return LineList;
+	    }(React.Component));
 	    exports.LineList = LineList;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -6182,22 +6266,28 @@
 /* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(69)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, form_1) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(69)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, form_1) {
 	    "use strict";
-	    class TrData extends React.Component {
-	        constructor() {
-	            super();
+	    var TrData = (function (_super) {
+	        __extends(TrData, _super);
+	        function TrData() {
+	            _super.call(this);
 	            this.handleClick = this.handleClick.bind(this);
 	        }
-	        handleClick(e) {
+	        TrData.prototype.handleClick = function (e) {
 	            e.preventDefault();
 	            this.props.onClick(this.props.value._id);
-	        }
-	        render() {
-	            let td = [];
-	            let num = 1;
-	            let input;
-	            for (let i in this.props.value) {
+	        };
+	        TrData.prototype.render = function () {
+	            var td = [];
+	            var num = 1;
+	            var input;
+	            for (var i in this.props.value) {
 	                if (i === "_id") {
 	                    continue;
 	                }
@@ -6213,39 +6303,27 @@
 	            else {
 	                return React.createElement("tr", {onClick: this.handleClick}, td);
 	            }
-	        }
-	    }
+	        };
+	        return TrData;
+	    }(React.Component));
 	    exports.TrData = TrData;
-	    class List extends React.Component {
-	        render() {
-	            let head = [];
-	            for (let key in this.props.value[0]) {
-	                if (key === "_id") {
-	                    continue;
-	                }
-	                ;
-	                head.push(key);
-	            }
-	            this.props.value.sort((a, b) => {
-	                if (a[head[0]] < b[head[0]]) {
-	                    return -1;
-	                }
-	                ;
-	                if (a[head[0]] > b[head[0]]) {
-	                    return 1;
-	                }
-	                ;
-	                return 0;
+	    var List = (function (_super) {
+	        __extends(List, _super);
+	        function List() {
+	            _super.apply(this, arguments);
+	        }
+	        List.prototype.render = function () {
+	            var _this = this;
+	            var tr = this.props.value.map(function (data) {
+	                return React.createElement(TrData, {key: data._id, inputOn: _this.props.inputOn, value: data, onClick: _this.props.onEvent});
 	            });
-	            let tr = this.props.value.map((data) => {
-	                return React.createElement(TrData, {key: data._id, inputOn: this.props.inputOn, value: data, onClick: this.props.onEvent});
-	            });
-	            let thead = this.props.th.map((data) => {
+	            var thead = this.props.th.map(function (data) {
 	                return React.createElement("th", {key: data}, data);
 	            });
 	            return React.createElement("table", {className: "table table-condensed  table-hover"}, React.createElement("thead", null, React.createElement("tr", null, thead)), React.createElement("tbody", null, tr));
-	        }
-	    }
+	        };
+	        return List;
+	    }(React.Component));
 	    exports.List = List;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -6254,11 +6332,18 @@
 /* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(69), __webpack_require__(70)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, form_1, DB) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(69), __webpack_require__(70)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, form_1, DB) {
 	    "use strict";
-	    class OutputForm extends React.Component {
-	        constructor(props) {
-	            super(props);
+	    var OutputForm = (function (_super) {
+	        __extends(OutputForm, _super);
+	        function OutputForm(props) {
+	            var _this = this;
+	            _super.call(this, props);
 	            this.connect = false;
 	            this.state = {
 	                data: {
@@ -6276,37 +6361,37 @@
 	                },
 	            };
 	            this.lineDataDB = new DB.IndexDB("linedata");
-	            this.lineDataDB.onWriteEvent = (mes) => {
+	            this.lineDataDB.onWriteEvent = function (mes) {
 	                if (mes) {
-	                    this.context.router.push("/lineinfo/" + this.props.params.line_id);
+	                    alert("moi");
 	                }
 	                else {
 	                    alert("登録に失敗しました");
 	                }
 	            };
-	            this.lineDataDB.onConnect = (mes) => {
+	            this.lineDataDB.onConnect = function (mes) {
 	                if (mes) {
-	                    this.connect = true;
+	                    _this.connect = true;
 	                }
 	            };
 	            this.lineinfoDB = new DB.IndexDB("lineinfo");
-	            this.lineinfoDB.onReadEvent = (mes, data) => {
+	            this.lineinfoDB.onReadEvent = function (mes, data) {
 	                if (mes = "success") {
-	                    this.setState({ info: data });
+	                    _this.setState({ info: data });
 	                }
 	            };
-	            this.lineinfoDB.onConnect = (mes) => {
+	            this.lineinfoDB.onConnect = function (mes) {
 	                if (mes) {
-	                    let key = Number(this.props.params.line_id);
-	                    this.lineinfoDB.getData(key);
+	                    var key = Number(_this.props.params.line_id);
+	                    _this.lineinfoDB.getData(key);
 	                }
 	            };
 	            this.handleSubmit = this.handleSubmit.bind(this);
 	            this.checkValue = this.checkValue.bind(this);
 	        }
-	        handleSubmit(e) {
+	        OutputForm.prototype.handleSubmit = function (e) {
 	            e.preventDefault();
-	            let data = {
+	            var data = {
 	                date: this.state["data"].date,
 	                linename: this.state["info"].linename,
 	                partnum: this.state["info"].partnum,
@@ -6315,15 +6400,16 @@
 	                lineeffi: this.state["data"].lineeffi,
 	                stoptime: this.state["data"].stoptime,
 	            };
+	            console.log(data);
 	            if (this.connect) {
 	                this.lineDataDB.addData(data);
 	            }
 	            else {
 	                alert("登録に失敗しました");
 	            }
-	        }
-	        checkValue(type, data) {
-	            let kdata = {
+	        };
+	        OutputForm.prototype.checkValue = function (type, data) {
+	            var kdata = {
 	                date: this.state["data"].date,
 	                optime: this.state["data"].optime,
 	                output: this.state["data"].output,
@@ -6348,9 +6434,9 @@
 	            this.setState({
 	                data: kdata,
 	            });
-	        }
-	        render() {
-	            let LineData = [
+	        };
+	        OutputForm.prototype.render = function () {
+	            var LineData = [
 	                {
 	                    name: "optime",
 	                    placeholder: "稼働時間",
@@ -6362,12 +6448,10 @@
 	                    type: "number",
 	                },
 	            ];
-	            return React.createElement("div", {className: "cover-container"}, React.createElement("form", {onSubmit: this.handleSubmit}, React.createElement(form_1.Date, {onChange: this.checkValue, name: "date", label: "日付"}), React.createElement(form_1.FormTemp, {value: LineData, checkValue: this.checkValue}), React.createElement(form_1.FixedForm, {value: this.state["data"].lineeffi, label: "ライン効率"}), React.createElement(form_1.FixedForm, {value: this.state["data"].stoptime, label: "停止時間"}), React.createElement("button", {className: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary btn-block space"}, "登録")));
-	        }
-	    }
-	    OutputForm.contextTypes = {
-	        router: React.PropTypes.object
-	    };
+	            return React.createElement("div", {className: "cover-container"}, React.createElement("form", {onSubmit: this.handleSubmit}, React.createElement(form_1.Date, {onChange: this.checkValue, name: "date", label: "日付"}), React.createElement(form_1.FormTemp, {value: LineData, checkValue: this.checkValue}), React.createElement(form_1.FixedForm, {value: this.state["data"].lineeffi, label: "ライン効率"}), React.createElement(form_1.FixedForm, {value: this.state["data"].stoptime, label: "停止時間"}), React.createElement("input", {value: "登録", type: "submit", className: "btn btn-default btn-block"})));
+	        };
+	        return OutputForm;
+	    }(React.Component));
 	    exports.OutputForm = OutputForm;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -6376,50 +6460,58 @@
 /* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(73), __webpack_require__(70)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, list_1, DB) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(73), __webpack_require__(70)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, list_1, DB) {
 	    "use strict";
-	    class LineInfo extends React.Component {
-	        constructor() {
-	            super();
+	    var LineInfo = (function (_super) {
+	        __extends(LineInfo, _super);
+	        function LineInfo() {
+	            var _this = this;
+	            _super.call(this);
 	            this.onClick = this.onClick.bind(this);
 	            this.db = new DB.IndexDB("lineinfo");
 	            this.state = { val: [] };
-	            this.db.onReadEvent = (mes, data) => {
+	            this.db.onReadEvent = function (mes, data) {
 	                if (mes === "success") {
-	                    data.map((data) => {
+	                    data.map(function (data) {
 	                        delete data['cicletime'];
 	                    });
-	                    this.setState({ val: data });
+	                    _this.setState({ val: data });
 	                }
 	                else {
 	                    alert("データ読み込みに失敗");
 	                }
 	            };
-	            this.db.onWriteEvent = (mes) => {
+	            this.db.onWriteEvent = function (mes) {
 	                if (mes) {
-	                    this.db.getAllData();
+	                    _this.db.getAllData();
 	                }
 	                else {
 	                    alert("削除に失敗しました");
 	                }
 	            };
-	            this.db.onConnect = (mes) => {
+	            this.db.onConnect = function (mes) {
 	                if (mes) {
-	                    this.db.getAllData();
+	                    _this.db.getAllData();
 	                }
 	            };
 	        }
-	        onClick(target) {
+	        LineInfo.prototype.onClick = function (target) {
 	            this.context.router.push("/lineinfo/" + target);
-	        }
-	        render() {
-	            let thead = ["ライン名", "品番"];
+	        };
+	        LineInfo.prototype.render = function () {
+	            var thead = ["ライン名", "品番"];
 	            return React.createElement(list_1.List, {value: this.state["val"], th: thead, onEvent: this.onClick, inputOn: false});
-	        }
-	    }
-	    LineInfo.contextTypes = {
-	        router: React.PropTypes.object
-	    };
+	        };
+	        LineInfo.contextTypes = {
+	            router: React.PropTypes.object
+	        };
+	        return LineInfo;
+	    }(React.Component));
 	    exports.LineInfo = LineInfo;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
@@ -6428,64 +6520,47 @@
 /* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(3), __webpack_require__(70), __webpack_require__(73)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, react_router_1, DB, list_1) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(2), __webpack_require__(3), __webpack_require__(70), __webpack_require__(73)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, React, react_router_1, DB, list_1) {
 	    "use strict";
-	    class LineAllData extends React.Component {
-	        constructor() {
-	            super();
-	            this.onDelete = this.onDelete.bind(this);
+	    var LineAllData = (function (_super) {
+	        __extends(LineAllData, _super);
+	        function LineAllData(props) {
+	            var _this = this;
+	            _super.call(this, props);
 	            this.datadb = new DB.IndexDB("linedata");
 	            this.state = { val: [] };
-	            this.datadb.onReadEvent = (mes, data) => {
+	            this.datadb.onReadEvent = function (mes, data) {
 	                switch (mes) {
 	                    case "success":
-	                        this.setState({ val: data });
+	                        _this.setState({ val: data });
 	                        break;
 	                    case "successtable":
-	                        this.infodata = data;
-	                        this.datadb.getCursorData("linepartIndex", [this.infodata.linename, this.infodata.partnum]);
+	                        _this.infodata = data;
+	                        _this.datadb.getCursorData("linepartIndex", [_this.infodata.linename, _this.infodata.partnum]);
 	                        break;
 	                }
 	            };
-	            this.datadb.onWriteEvent = (mes) => {
+	            this.datadb.onConnect = function (mes) {
 	                if (mes) {
-	                    this.datadb.getCursorData("linepartIndex", [this.infodata.linename, this.infodata.partnum]);
-	                }
-	                else {
-	                    alert("削除に失敗しました");
-	                }
-	            };
-	            this.datadb.onConnect = (mes) => {
-	                if (mes) {
-	                    let key = Number(this.props.params.line_id);
-	                    this.datadb.getDataforTable("lineinfo", key);
+	                    var key = Number(_this.props.params.line_id);
+	                    _this.datadb.getDataforTable("lineinfo", key);
 	                }
 	            };
 	        }
-	        onDelete(target) {
-	            let res = confirm("削除しますか?");
-	            if (res === true) {
-	                this.datadb.deleteData(target);
-	            }
-	        }
-	        render() {
-	            let datum = [{
-	                    key: "Comulative Return",
-	                    values: [
-	                        {
-	                            "label": "A",
-	                            "value": "-12.123123",
-	                        },
-	                        {
-	                            "label": "B",
-	                            "value": "-10.1234",
-	                        },
-	                    ],
-	                }];
-	            let thead = ["加工日", "ライン名", "品番", "稼働時間", "加工数", "ライン効率", "停止時間"];
-	            return React.createElement("div", null, React.createElement(react_router_1.Link, {to: "/output/" + this.props.params.line_id}, "出来高登録"), React.createElement(list_1.List, {value: this.state["val"], th: thead, onEvent: this.onDelete, inputOn: false}));
-	        }
-	    }
+	        LineAllData.prototype.onClick = function () {
+	            console.log("moi");
+	        };
+	        LineAllData.prototype.render = function () {
+	            var thead = ["加工日", "ライン名", "品番", "稼働時間", "加工数", "ライン効率", "停止時間"];
+	            return React.createElement("div", null, React.createElement(react_router_1.Link, {to: "/output/" + this.props.params.line_id}, "出来高登録"), React.createElement(list_1.List, {value: this.state["val"], th: thead, onEvent: this.onClick, inputOn: false}));
+	        };
+	        return LineAllData;
+	    }(React.Component));
 	    exports.LineAllData = LineAllData;
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 

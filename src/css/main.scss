@@ -1,0 +1,125 @@
+.space {
+  margin-bottom:45px;
+}
+
+#barChart svg {
+  height:400px;
+}
+/////////　フォーム用///////////////////////////
+
+.cover-container{
+    width: 285px;
+}
+.cover-container {
+  margin-top:40px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.group{
+  position: relative;
+  margin-bottom: 45px;
+}
+.input {
+  font-size: 18px;
+  padding:10px 10px 10px 5px;
+  width: 285px;
+  border: none;
+  border-bottom: 1px solid #757575;
+  box-shadow:none;
+  border-radius: 0;
+}
+.fixed-input {
+  width:285px;
+  display:block;
+  font-size: 18px;
+  padding:10px 10px 10px 5px;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+.input:focus {
+  outline:none;
+}
+.label {
+  padding:0px;
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transform: translate3d(0, 0, 0);
+  transition:0.2s ease all;
+}
+.fixed-label {
+  padding:0px;
+  color:#5264AE;
+  font-size:14px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:-20px;
+}
+.date-label {
+
+    padding:0px;
+    color:#5264AE;
+    font-size:14px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:-20px;
+}
+
+.input:focus ~ .label, .input:valid ~ .label 		{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+.bar 	{ position:relative; display:block; width:285px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#5264AE;
+  transform: translate3d(0, 0, 0);
+  transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+.input:focus ~ .bar:before, .input:focus ~ .bar:after {
+  width:50%;
+}
+
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+.input:focus ~ .highlight {
+  animation:inputHighlighter 0.3s ease;
+}
+
+@keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+
+//////// サブミットボタン用 ////////////////////////////

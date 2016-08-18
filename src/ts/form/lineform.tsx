@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Form } from "./form"
+import { FormTemp } from "./form"
 
 export class LineForm extends React.Component<Change, {}> {
     constructor() {
@@ -42,26 +42,32 @@ export class LineForm extends React.Component<Change, {}> {
       });
     }
     public render() {
-        return <form onSubmit={this.handleSubmit}>
-                  <Form type="text"
-                        placeholder="ライン名"
-                        name="linename"
-                        checkValue={this.checkValue}
-                        />
-                  <Form type="text"
-                        placeholder="品番"
-                        name="partnum"
-                        checkValue={this.checkValue}
-                        />
-                  <Form type="number"
-                        placeholder="サイクルタイム"
-                        name="cicletime"
-                        checkValue={this.checkValue}
-                        />
-                <input type="submit"
-                        className="btn btn-default btn-block"
-                        value="登録"
-                       />
-               </form>;
+        let LineData: LineFormData[] =
+              [{
+                  name: "linename",
+                  placeholder: "ライン名",
+                  type: "text",
+              },
+              {
+                  name: "partnum",
+                  placeholder: "品番",
+                  type: "text",
+              },
+              {
+                  name: "cicletime",
+                  placeholder: "サイクルタイム",
+                  type: "number",
+              }];
+        return   <div className="cover-container">
+                  <form onSubmit={this.handleSubmit}>
+                  <FormTemp
+                   value={LineData}
+                   checkValue={this.checkValue}
+                   />
+                  <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary btn-block space">
+                    登録
+                  </button>
+                  </form>
+                 </div>;
     }
 }
